@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f3ec">
+  <title>敷き詰めクエスト | Tiling Quest</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./"><span class="brand-icon" aria-hidden="true">▰<i>▰</i></span><span>敷き詰めクエスト<small>TILING QUEST</small></span></a>
+    <span class="header-note">手を動かす。数学が見えてくる。</span>
+    <span class="edition">SHAPE EXPLORER <b>01—03</b></span>
+  </header>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">つながる形を、見つけよう。</p>
+      <h1>このでっぱり、どこに合う？</h1>
+      <p>ひとつの形から、広がる世界。つなげ方は、あなたが発見する。</p>
+    </section>
+    <nav class="stages" aria-label="ステージ選択"></nav>
+    <section class="game-layout">
+      <aside class="guide">
+        <p class="eyebrow" id="stage-number"></p>
+        <h2 id="stage-title"></h2>
+        <p id="stage-description" class="stage-description"></p>
+        <div class="mission"><span class="little-label">YOUR MISSION</span><p>はじめの1枚から、<strong>9枚以上</strong>を<br>たてにも、よこにもつなげよう。</p><div id="transforms" class="transforms"></div></div>
+        <div class="guide-bottom"><span class="spark">✧</span><p>でっぱりと、へこみ。<br>形をよく見てみよう。</p><small>同じ形を、何枚でも取り出せます。</small></div>
+      </aside>
+      <div class="play-card">
+        <div class="board-heading"><div><span class="live-dot"></span><span id="board-label">はじめの1枚から、自由につなごう</span></div><div class="progress"><strong id="placed-count">1</strong><span> / 9 枚</span></div></div>
+        <div class="progress-track"><div id="progress-bar"></div></div>
+        <div class="board-area">
+          <svg id="board" aria-label="自由にタイルをつなぐ敷き詰めエリア" role="group"></svg>
+          <div class="view-controls" aria-label="表示の調整"><button id="zoom-out" aria-label="縮小">−</button><button id="fit" aria-label="すべてのタイルを表示">全体</button><button id="zoom-in" aria-label="拡大">＋</button></div>
+          <div id="celebration" aria-hidden="true"></div>
+        </div>
+        <div class="board-footer"><span id="status" role="status" aria-live="polite">下のタイルを取り出して、となりへ。</span><span class="pan-note">余白をドラッグで画面移動</span></div>
+        <div class="tile-dock">
+          <div class="supply-wrap"><div class="supply-label">新しいタイル <span>∞</span></div><button id="supply" aria-label="新しいタイルを取り出す"></button><small>何枚でもドラッグ</small></div>
+          <div class="tools"><p id="selection-label" class="selection-label">新しいタイルを選択中</p><div class="tool-buttons"><button id="rotate"><span aria-hidden="true">↻</span>回転<small>180°</small></button><button id="flip"><span aria-hidden="true">⇄</span>反転<small>左右</small></button></div><p id="tool-note" class="tool-note"></p></div>
+          <div class="other-tools"><button id="remove" disabled aria-label="選んだタイルを戻す">戻す</button><button id="reset"><span aria-hidden="true">⟲</span>やり直す</button></div>
+        </div>
+      </div>
+    </section>
+    <footer class="page-footer"><span>ひとつの形から、ひろがる世界。</span><span>TILING QUEST <span class="footer-star">✦</span> MATH IS A PLAYGROUND</span></footer>
+  </main>
+  <dialog id="clear-dialog">
+    <div class="clear-symbol">✦</div><p class="eyebrow">見つけた、つながる形！</p><h2>CLEAR!</h2>
+    <p id="clear-text"></p><div class="reflection"><span id="clear-term"></span><p id="clear-question"></p></div>
+    <button id="next-stage" class="primary">次のステージへ →</button><button id="review" class="review">このまま、もっとつなげる</button>
+  </dialog>
+  <script src="tiles-data.js"></script>
+  <script src="geometry.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
